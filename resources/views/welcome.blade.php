@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-<link href="https://feeldreams.github.io/heihbd/style.css" rel="stylesheet" type="text/css" />
+{{-- <link href="https://feeldreams.github.io/heihbd/style.css" rel="stylesheet" type="text/css" /> --}}
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
 <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
 <script src="https://kit.fontawesome.com/d639410787.js" crossorigin="anonymous"></script>
 
@@ -350,7 +351,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            $('#kadoIn').click();
+            // $('#kadoIn').click();
 
             $('#userResponseForm').on('submit', function(event) {
                 event.preventDefault();

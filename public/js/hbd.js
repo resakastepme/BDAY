@@ -5,6 +5,14 @@ function initengahan() {
     wallpaper.style = "transform: scale(1.5);";
 }
 
+function sebelumtengahan() {
+    kadoIn.style = "display:block"; ket.style = "display:block";
+    // Content.style = "opacity:1;margin-top:0";
+    bodyblur.style = "opacity:.7";
+    wallpaper.style = "transform: scale(1);";
+}
+sebelumtengahan()
+
 async function mulainama() {
     bodyblur.style = "opacity:.7";
     wallpaper.style = "transform: scale(1);";
