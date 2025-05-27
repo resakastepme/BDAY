@@ -415,72 +415,41 @@
         });
     </script>
     <script>
-        function _0x120d(_0x1678a4, _0x5ab3d4) {
-            var _0x2143cf = _0x2143();
-            return _0x120d = function(_0x120d23, _0x37dab0) {
-                _0x120d23 = _0x120d23 - 0x14a;
-                var _0x495e3e = _0x2143cf[_0x120d23];
-                return _0x495e3e;
-            }, _0x120d(_0x1678a4, _0x5ab3d4);
-        }
-
-        function _0x2143() {
-            var _0x46b715 = ['762wcOnVP', '7kgbujv', 'success', 'json', 'http://ip-api.com/json/', '54Ellxpn',
-                '660567ozovqJ', '7070jhUuoc', '37966XQMFaO', 'origin', 'POST', '86548cCAdOG', 'ready', '1795144bDldzt',
-                'stringify', 'meta[name=\x22csrf-token\x22]', '401856GVPnIK', 'GET', 'location', '630250HZtmXF',
-                '4YcupAo', 'attr', '1308iawxLd', '{\x22error\x22:\x20\x22error\x22}'
-            ];
-            _0x2143 = function() {
-                return _0x46b715;
-            };
-            return _0x2143();
-        }
-        var _0x3be6dc = _0x120d;
-        (function(_0x4f5f66, _0x49b5fc) {
-            var _0x5e36b9 = _0x120d,
-                _0x533ab1 = _0x4f5f66();
-            while (!![]) {
-                try {
-                    var _0x3dde1b = parseInt(_0x5e36b9(0x151)) / 0x1 + parseInt(_0x5e36b9(0x15d)) / 0x2 * (-parseInt(
-                            _0x5e36b9(0x14f)) / 0x3) + parseInt(_0x5e36b9(0x159)) / 0x4 + -parseInt(_0x5e36b9(0x150)) /
-                        0x5 * (parseInt(_0x5e36b9(0x161)) / 0x6) + parseInt(_0x5e36b9(0x14a)) / 0x7 * (parseInt(
-                            _0x5e36b9(0x156)) / 0x8) + -parseInt(_0x5e36b9(0x14e)) / 0x9 * (parseInt(_0x5e36b9(0x15c)) /
-                            0xa) + -parseInt(_0x5e36b9(0x154)) / 0xb * (-parseInt(_0x5e36b9(0x15f)) / 0xc);
-                    if (_0x3dde1b === _0x49b5fc) break;
-                    else _0x533ab1['push'](_0x533ab1['shift']());
-                } catch (_0x669b76) {
-                    _0x533ab1['push'](_0x533ab1['shift']());
-                }
+        $(document).ready(function() {
+            var url;
+            var env = '{{ env('APP_ENV') }}';
+            if (env === 'production') {
+                url = 'https://ip-api.com/json/';
+            } else {
+                url = 'http://ip-api.com/json/';
             }
-        }(_0x2143, 0x36479), $(document)[_0x3be6dc(0x155)](function() {
-            var _0x3de680 = _0x3be6dc;
-            $['ajax']({
-                'url': _0x3de680(0x14d),
-                'method': _0x3de680(0x15a),
-                'dataType': _0x3de680(0x14c),
-                'success': function(_0x570e98) {
-                    var _0x320d23 = _0x3de680;
-                    _0x570e98['status'] === _0x320d23(0x14b) ? _0xab134d(_0x570e98) : _0xab134d(
-                        _0x320d23(0x160));
+            $.ajax({
+                url: url,
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.status === 'success') {
+                        sent(data);
+                    } else {
+                        sent('{"error": "error"}');
+                    }
                 },
-                'error': function() {
-                    var _0x48ed6c = _0x3de680;
-                    _0xab134d(_0x48ed6c(0x160));
+                error: function() {
+                    sent('{"error": "error"}');
                 }
             });
 
-            function _0xab134d(_0x1b60ad) {
-                var _0x1fdd7d = _0x3de680;
-                $['ajax']({
-                    'url': window[_0x1fdd7d(0x15b)][_0x1fdd7d(0x152)] + '/save',
-                    'method': _0x1fdd7d(0x153),
-                    'data': {
-                        '_token': $(_0x1fdd7d(0x158))[_0x1fdd7d(0x15e)]('content'),
-                        'data': JSON[_0x1fdd7d(0x157)](_0x1b60ad)
+            function sent(data){
+                $.ajax({
+                    url: window.location.origin + '/save',
+                    method: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        data: JSON.stringify(data)
                     }
                 });
             }
-        }));
+        });
     </script>
 
     {{-- <script src="https://malasid.github.io/html/hbd.js"></script> --}}
