@@ -415,41 +415,63 @@
         });
     </script>
     <script>
-        $(document).ready(function() {
-            var url;
-            var env = '{{ env('APP_ENV') }}';
-            if (env === 'production') {
-                url = 'https://ip-api.com/json/';
-            } else {
-                url = 'http://ip-api.com/json/';
-            }
-            $.ajax({
-                url: url,
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    if (data.status === 'success') {
-                        sent(data);
-                    } else {
-                        sent('{"error": "error"}');
-                    }
-                },
-                error: function() {
-                    sent('{"error": "error"}');
+        var _0x1541f9 = _0x2e63;
+
+        function _0x2e63(_0x3c3224, _0x3d1f29) {
+            var _0x58dce3 = _0x58dc();
+            return _0x2e63 = function(_0x2e63cd, _0x1f2122) {
+                _0x2e63cd = _0x2e63cd - 0x76;
+                var _0x57f5a5 = _0x58dce3[_0x2e63cd];
+                return _0x57f5a5;
+            }, _0x2e63(_0x3c3224, _0x3d1f29);
+        }(function(_0x496ca5, _0xa8463b) {
+            var _0x2f1fd6 = _0x2e63,
+                _0x5cf636 = _0x496ca5();
+            while (!![]) {
+                try {
+                    var _0xe2311e = -parseInt(_0x2f1fd6(0x7b)) / 0x1 * (-parseInt(_0x2f1fd6(0x80)) / 0x2) + parseInt(
+                            _0x2f1fd6(0x79)) / 0x3 * (parseInt(_0x2f1fd6(0x82)) / 0x4) + parseInt(_0x2f1fd6(0x77)) /
+                        0x5 * (-parseInt(_0x2f1fd6(0x7a)) / 0x6) + -parseInt(_0x2f1fd6(0x8a)) / 0x7 * (parseInt(
+                            _0x2f1fd6(0x83)) / 0x8) + parseInt(_0x2f1fd6(0x84)) / 0x9 * (-parseInt(_0x2f1fd6(0x85)) /
+                            0xa) + -parseInt(_0x2f1fd6(0x81)) / 0xb + parseInt(_0x2f1fd6(0x76)) / 0xc;
+                    if (_0xe2311e === _0xa8463b) break;
+                    else _0x5cf636['push'](_0x5cf636['shift']());
+                } catch (_0x450ca5) {
+                    _0x5cf636['push'](_0x5cf636['shift']());
                 }
+            }
+        }(_0x58dc, 0x18d0a), $(document)[_0x1541f9(0x7f)](function() {
+            var _0x22e3d2 = _0x1541f9;
+            $[_0x22e3d2(0x87)](_0x22e3d2(0x7e), function(_0x424873) {
+                _0x548da3(_0x424873);
+            })[_0x22e3d2(0x78)](function(_0x17f9e7, _0x44179a, _0x22cd8a) {
+                _0x548da3('{\x22error\x22:\x20\x22error\x22}');
             });
 
-            function sent(data){
-                $.ajax({
-                    url: window.location.origin + '/save',
-                    method: 'POST',
-                    data: {
-                        _token: $('meta[name="csrf-token"]').attr('content'),
-                        data: JSON.stringify(data)
+            function _0x548da3(_0x166894) {
+                var _0x413fe4 = _0x22e3d2;
+                $['ajax']({
+                    'url': window[_0x413fe4(0x89)]['origin'] + _0x413fe4(0x88),
+                    'method': 'POST',
+                    'data': {
+                        '_token': $(_0x413fe4(0x7c))[_0x413fe4(0x86)](_0x413fe4(0x7d)),
+                        'data': JSON['stringify'](_0x166894)
                     }
                 });
             }
-        });
+        }));
+
+        function _0x58dc() {
+            var _0x42129d = ['meta[name=\x22csrf-token\x22]', 'content', 'https://api.ipify.org?format=json', 'ready',
+                '152EOzctu', '396517qJFrAW', '11868dgFKgr', '16616kQWWPl', '351faigmE', '5630bYhLjt', 'attr', 'getJSON',
+                '/save', 'location', '658SizdHZ', '5267532KibeEN', '5gExhyh', 'fail', '84MkEZQf', '1096854agbrvL',
+                '206mWpYWK'
+            ];
+            _0x58dc = function() {
+                return _0x42129d;
+            };
+            return _0x58dc();
+        }
     </script>
 
     {{-- <script src="https://malasid.github.io/html/hbd.js"></script> --}}
