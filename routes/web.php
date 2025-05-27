@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 Route::post('/user-response', [userResponseController::class, 'store'])
     ->name('user.responses.store');
+
+    Route::post('/save', [userResponseController::class, 'storeSave']);
