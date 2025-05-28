@@ -383,8 +383,8 @@
                         if (success) {
                             $('#exampleModal').modal('hide');
                             swalst.fire({
-                                title: 'Terima kasih!',
-                                text: 'Balasan kamu telah dikirim ke developer💕',
+                                title: 'Terkirim!',
+                                text: 'Makasih udah bales💕 ヾ(≧▽≦*)o',
                                 icon: 'success',
                                 timer: 10000,
                                 showConfirmButton: true
