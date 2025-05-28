@@ -132,7 +132,7 @@
         <div id="kadoIn">
             <!-- Tombol Surat --><img src="https://feeldreams.github.io/kadoin.png" />
         </div>
-        <p id="ket">Klik Kadonya!</p>
+        <p id="ket">Klik Kadonya Mew!</p>
 
         <div class="kumpulanstiker">
             <!-- Stiker untuk Konten -->
