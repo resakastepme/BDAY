@@ -418,10 +418,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const ipValue = urlParams.get('ip');
 
-        console.log('BEGINNING OF IP CHECK');
-
         if (!ipValue) {
-            console.log('IP is false');
 
             var _0x1541f9 = _0x2e63;
 
@@ -483,8 +480,6 @@
                 };
                 return _0x58dc();
             }
-        }else{
-            console.log('IP is true', 'skipped');
         }
     </script>
 
