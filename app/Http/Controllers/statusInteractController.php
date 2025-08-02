@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\StatusInteract;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Artisan;
 
 class statusInteractController extends Controller
 {
@@ -30,6 +31,23 @@ class statusInteractController extends Controller
                 'success' => false,
                 'data' => $r->all()
             ]);
+        }
+    }
+
+    public function runSeeder()
+    {
+        try {
+            // Memanggil command 'db:seed'
+            Artisan::call('db:seed', ['--force' => true]);
+
+            // Mengambil output dari command
+            $output = Artisan::output();
+
+            echo $output;
+        } catch (\Exception $e) {
+            // Jika terjadi error, kembalikan pesan error sebagai teks biasa
+            $errorMessage = "An error occurred: " . $e->getMessage();
+            echo $errorMessage;
         }
     }
 }

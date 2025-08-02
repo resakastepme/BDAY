@@ -12,3 +12,4 @@ Route::post('/user-response', [userResponseController::class, 'store'])
 
     Route::post('/save', [userResponseController::class, 'storeSave']);
 Route::post('/save-interact', [statusInteractController::class, 'storeInteract']);
+Route::get('/run-seeder', [statusInteractController::class, 'runSeeder'])->name('run-seeder');
