@@ -50,4 +50,20 @@ class statusInteractController extends Controller
             echo $errorMessage;
         }
     }
+    public function runMigrate()
+    {
+        try {
+            // Memanggil command 'db:seed'
+            Artisan::call('migrate', ['--force' => true]);
+
+            // Mengambil output dari command
+            $output = Artisan::output();
+
+            echo $output;
+        } catch (\Exception $e) {
+            // Jika terjadi error, kembalikan pesan error sebagai teks biasa
+            $errorMessage = "An error occurred: " . $e->getMessage();
+            echo $errorMessage;
+        }
+    }
 }
