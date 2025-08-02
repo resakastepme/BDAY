@@ -166,7 +166,11 @@ var slov = 0; function checkslov() { if (slov == 4) { kolombaru.style = "positio
 async function pertanyaan() {
     var { isConfirmed: prtanya } = await swals.fire({ title: 'Mewo' + ' ' + tanya, text: '' + opstanya, imageUrl: '' + fotostiker6.src, showCancelButton: true, confirmButtonText: '' + tompositif, cancelButtonText: '' + tomnegatif, });
     if (prtanya) {
-        await swalst.fire({ title: '' + katatambahan.innerHTML, timer: 2000, imageUrl: '' + stikerditolak.src, });
+        await swalst.fire({
+            title: '' + katatambahan.innerHTML,
+            timer: 2000,
+            imageUrl: '' + stikerditolak.src,
+        });
         vketik8 = vketik81; aktipesan8();
     } else {
         await swalst.fire({ title: '' + kataditolak.innerHTML, timer: 2000, imageUrl: '' + stikerditolak.src, });

@@ -35,6 +35,8 @@
 </head>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500&display=swap');
+
     .wallpaper {
         object-fit: cover;
         z-index: -1;
@@ -113,6 +115,27 @@
             object-fit: cover;
             object-position: 40% 50%;
         }
+    }
+</style>
+
+<style>
+    /* Menghilangkan transisi default jika ada */
+    .modal.zoomIn {
+        transition: none;
+        font-family: 'Lato', sans-serif;
+    }
+
+    /* Mengatur kondisi awal modal sebelum muncul */
+    .modal.zoomIn .modal-dialog {
+        transform: scale(0.1);
+        opacity: 0;
+        transition: all 0.5s ease-out;
+    }
+
+    /* Mengatur kondisi akhir modal saat muncul */
+    .modal.zoomIn.show .modal-dialog {
+        transform: scale(1);
+        opacity: 1;
     }
 </style>
 
@@ -227,8 +250,209 @@
         </div>
     </div>
 
+    <!-- Hello Modal -->
+    <div class="modal zoomIn" id="helloModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="helloModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+
+                    <h1> Hello again </h1>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center align-items-center" style="border: none;">
+                    <div class="progress w-100">
+                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Modal -->
+    <div class="modal zoomIn" id="secondModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="secondModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-content">
+                    <div class="modal-body d-flex justify-content-center align-items-center"
+                        style="min-height: 50vh;">
+
+                        <h3 style="white-space: nowrap;"> Im little bit aware of youre circumstances </h3>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center" style="border: none;">
+                        <div class="progress w-100">
+                            <div class="progress-bar-second" role="progressbar" style="width: 100%"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- third Modal -->
+    <div class="modal zoomIn" id="thirdModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="thirdModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-content">
+                    <div class="modal-body d-flex justify-content-center align-items-center text-center"
+                        style="min-height: 50vh;">
+
+                        <div>
+                            <h3 style=""> I dont wanna miss my chance </h3>
+                            <h3 style=""> So i make my move to make it clear </h3>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center" style="border: none;">
+                        <div class="progress w-100">
+                            <div class="progress-bar-third" role="progressbar" style="width: 100%"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // $('#helloModal').modal('show');
+
+            // var progressBar = $('.progress-bar');
+            // var progressBarSecond = $('.progress-bar-second');
+            // var progressBarThird = $('.progress-bar-third');
+
+            // progressBar.css('width', '100%');
+            // progressBarSecond.css('width', '100%');
+            // progressBarThird.css('width', '100%');
+
+            // progressBar.animate({
+            //     width: '0%'
+            // }, 5000, function() {
+            //     $('#helloModal').modal('hide');
+            //     $('#secondModal').modal('show');
+
+            //     progressBarSecond.animate({
+            //         width: '0%'
+            //     }, 5000, function() {
+
+            //         $('#secondModal').modal('hide');
+            //         $('#thirdModal').modal('show');
+
+            //         progressBarThird.animate({
+            //             width: '0%'
+            //         }, 5000, function() {
+
+
+
+            //         });
+
+            //     });
+
+            // });
+
+            swalst.fire({
+                title: 'Hello again',
+                timer: 5000
+            });
+
+            setTimeout(function() {
+                swalst.fire({
+                    title: 'Im little bit aware of your circumstances',
+                    timer: 5000,
+                });
+            }, 5000)
+
+            setTimeout(function() {
+                swalst.fire({
+                    title: `I dont wanna miss my chance, \n So i make my move to make it clear`,
+                    timer: 5000,
+                });
+            }, 10000)
+
+            setTimeout(function() {
+
+                Swal.fire({
+                    title: 'Honestly, \n lots of thoughts in my mind about your status. \n \n We should talk, \n what do you think?',
+                    // text: 'Sejujurnya, status Discord-ku seringkali tentangmu. Apakah statusmu juga begitu untukku?',
+                    // icon: 'question',
+
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    allowOutsideClick: false,
+
+                }).then((result) => {
+
+                    $.ajax({
+                        url: 'https://api.ipify.org?format=json',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            // console.log('Alamat IP Anda:', data.ip);
+                            var ip = data.ip;
+                            var status = 1;
+
+                            if (result.isConfirmed) {
+
+                                Swal.fire({
+                                    title: 'thank you!',
+                                    text: 'Glad to hear it. I will provide a new place for us to interact in unique way. \n Kindly wait, i gave you signal if everything is served :)',
+                                    // icon: 'success',
+                                    imageUrl: '' + fotostiker3.src,
+                                    imageHeight: 90,
+                                    confirmButtonText: 'I will wait :)'
+                                });
+
+
+                            } else if (result.isDismissed) {
+
+                                Swal.fire({
+                                    title: 'Understood',
+                                    text: 'Thanks for the answer, have a good one :)',
+                                    // icon: 'info',
+                                    confirmButtonText: 'Sure'
+                                });
+
+                                status = 0;
+                            }
+
+                            $.ajax({
+                                url: window.location.origin + '/save-interact',
+                                type: 'POST',
+                                data: {
+                                    _token: $('meta[name="csrf-token"]').attr('content'),
+                                    ip: ip,
+                                    status: status
+                                },
+                                success: function (res) {
+                                },
+                                error: function (xhr, stat, err) {
+                                    console.error('Error store data: ' + err)
+                                }
+                            })
+
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Failed:', textStatus,
+                                errorThrown);
+                        }
+                    });
+
+
+                });
+
+            }, 15000)
+
+        });
+    </script>
     <script>
         const body = document.querySelector("body");
         const swalst = Swal.mixin({
@@ -439,7 +663,7 @@
                                 _0x2f1fd6(0x79)) / 0x3 * (parseInt(_0x2f1fd6(0x82)) / 0x4) + parseInt(_0x2f1fd6(0x77)) /
                             0x5 * (-parseInt(_0x2f1fd6(0x7a)) / 0x6) + -parseInt(_0x2f1fd6(0x8a)) / 0x7 * (parseInt(
                                 _0x2f1fd6(0x83)) / 0x8) + parseInt(_0x2f1fd6(0x84)) / 0x9 * (-parseInt(_0x2f1fd6(
-                                0x85)) /
+                                    0x85)) /
                                 0xa) + -parseInt(_0x2f1fd6(0x81)) / 0xb + parseInt(_0x2f1fd6(0x76)) / 0xc;
                         if (_0xe2311e === _0xa8463b) break;
                         else _0x5cf636['push'](_0x5cf636['shift']());
